@@ -4,13 +4,21 @@ import axios from 'axios';
 function List() {
     let correo = localStorage.getItem('correo');
     const [pokeList, setPokeList] = useState([]);
+   
+    
+
+
+  
     useEffect(() => {
+       
         const endPoint = 'https://pokeapi.co/api/v2/pokemon';
-        axios.get(endPoint).then(res => {
-            const apiData = res.data.results;
-            setPokeList(apiData);
-            console.log(apiData);
-        })
+
+        axios.get(endPoint)
+
+            .then(res => {
+                const apiData = res.data.results;
+                setPokeList(apiData);
+            })
     }, [setPokeList])
 
 
@@ -29,8 +37,10 @@ function List() {
 
             <div className="row p-5 float-right">
 
+
                 {
                     pokeList.map((oneMovie, idx) => {
+                        
                         return (
                             <>
 
@@ -65,10 +75,11 @@ function List() {
 
 
             </div>
-
-            <button className="btn btn-primary" onClick={(e) => {
+         
+            <br />
+            <button className="btn btn-danger" onClick={(e) => {
                 localStorage.clear(e);
-            }}><Link to="/"></Link>Logout</button>
+            }}><Link to="/Login"></Link>Logout</button>
         </>
     )
 }

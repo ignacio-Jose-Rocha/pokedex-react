@@ -7,7 +7,7 @@ function Detalle() {
   let useParams = new URLSearchParams(document.location.search);
   let id = useParams.get("id");
   const [pokemon, setPokemon] = useState(null);
-  
+
   useEffect(() => {
 
     const endPoint = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -24,6 +24,7 @@ function Detalle() {
 
   return (
     <>
+      {!correo && <Navigate to="/Login" />}
 
 
       <div className="contenedor">
@@ -58,10 +59,10 @@ function Detalle() {
         </div>
       </>}
 
-      {pokemon &&
+      
         <div className="contenedor">
-
-          </div>}
+            <Link to='/List'>Regresar</Link>
+        </div>
     </>
   )
 

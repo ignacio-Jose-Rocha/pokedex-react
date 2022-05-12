@@ -4,6 +4,7 @@ import { Link, useNavigate, Navigate } from 'react-router-dom';
 function Login() {
     let navigate = useNavigate();
     const [register, setRegister] = useState(false);
+    
     const SubmitHandler = (event) => {
 
         event.preventDefault();
@@ -41,10 +42,12 @@ function Login() {
                     <span>Password:</span>
                     <br />
                     <input type="password" name="password" />
+                    <br />
                 </label>
 
 
                 <br />
+                <label><h1><br/></h1></label>
                 <button type="submit">Sign in</button>
 
 
